@@ -1,0 +1,175 @@
+<svg viewbox="0 0 400 80" width="400" height="80">
+    <defs>
+        <mask id="text-mask">
+            <text fill="#FFF" text-anchor="middle" y="60" x="200">LABEL</text>
+            <filter id="text-filter" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"></feGaussianBlur>
+                <feOffset in="blur" dx="3" dy="-3"></feOffset>
+            </filter>
+        </mask>
+        <mask id="rect-mask">
+            <rect x="0" y="0" width="400" height="80" rx="20" ry="20" fill="rgba(255, 255, 255, 1)" />
+            <filter id="rect-filter" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5" result="blur" />
+                <feOffset in="blur" dx="3" dy="-3"></feOffset>
+            </filter>
+        </mask>
+        <lineargradient id="rect-gradient" x1="0" x2="1" y1=".1" y2=".9">
+            <stop offset="0%" stop-color="rgb(95, 75, 139)" />
+            <stop offset="15%" stop-color="rgb(118, 51, 116)" />
+            <stop offset="23%" stop-color="rgb(167, 108, 151)" />
+            <stop offset="50%" stop-color="rgb(132, 141, 197)" />
+            <stop offset="70%" stop-color="rgb(163, 87, l18)" />
+            <stop offset="80%" stop-color="rgb(240, 161, 191)" />
+            <stop offset="100%" stop-color="rgb(95, 75, 139)" />
+        </lineargradient>
+        <lineargradient id="text-gradient" x1=".25" x2="1" y1="0" y2="1" class="textGrad">
+            <stop offset=".0" stop-color="rgb(247, 196, 108)" />
+            <stop offset=".6" stop-color="rgb(229, 89, 130)" />
+            <stop offset="1.0" stop-color="rgb(234, 103, 89)" />
+        </lineargradient>
+    </defs>
+    <g mask="url(#rect-mask)">
+        <rect fill="#000" x="0" y="0" width="400" height="400" />
+        <rect x="0" y="0" fill="url(#rect-gradient)" filter="url(#rect-filter)" width="400" height="80" rx="20" ry="20" />
+    </g>
+    <g mask="url(#text-mask)">
+        <rect x="0" y="0" width="400" height="80" fill="#000" />
+        <text text-anchor="middle" y="60" x="200" filter="url(#text-filter)" fill="url(#text-gradient)">LABEL</text>
+    </g>
+</svg>
+
+
+<p>This code implements a visually striking, high-impact UI button that perfectly balances modern web performance with a nostalgic, "Retrowave" or Post-Modern Art Deco aesthetic. 
+    It effectively combines vector precision (SVG) with hardware-accelerated 3D motion (CSS).</p>
+<p>Here is a breakdown of why this code is a sophisticated piece of design engineering:</p>
+<ol>
+    <li><h3>"Trashy yet Sophisticated" Visuals (The SVG)</h3> 
+    <p>The SVG definitions create a visual style that feels pulled straight from a high-end 1980s graphic design portfolio.</p>
+    <p><strong>The Gradients: </strong>It uses two distinct, rich gradients.</p>
+    <ul>
+        <li><span class="name">rect-gradient</span>: A deep, moody spectrum moving from purple <span class="name">rgb(95, 75, 139)</span> to pink 
+            <span class="name">rgb(240, 161, 191)</span>. This provides a "Synthwave" night-sky backdrop.</li>
+            <li><span class="name">text-gradient</span>: A "sunset" gradient (gold to red) applied to the text.</li>
+    </ul>
+    <p>The Sophistication (Masking): Rather than simply layering text on top of a box, you are using SVG Masks 
+        <span class="name">&lt;mask id="text-mask"&gt;</span>. This technique allows the background logic to "cut out" the text or apply inner 
+            shadows/glows using the feGaussianBlur and feOffset filters. This adds a level of polish and depth 
+            that standard CSS text-shadows rarely achieve.</p>
+    </li>
+    <li><h3>Tactile 3D Physics (The CSS)</h3>
+    <p>The animation is the star of the show here. Instead of a standard 2D "scale" zoom, you are utilizing matrix3d.</p>
+    <ul>
+        <li><strong>The "Jelly" Wobble:</strong> By manipulating the matrix values in the 60% keyframe (0, .953, -.5, 0), you introduce a skew or rotation on the X/Z axis.</li>
+        <li><strong>The Result: </strong>When the user hovers, the button doesn't just get bigger; it physically "wobbles" or tilts toward the user before settling. 
+            This gives the button a tactile, gelatinous weight, making the interface feel alive and responsive.</li>
+    </ul>
+    </li>
+    <li>    
+        <h3>Performance Optimization</h3>
+        <p>Despite the complex visual result (gradients, blurs, 3D transforms), the code is highly optimized:</p>
+        <p>will-change candidate: By using transform for the animation, the browser can offload the rendering to the GPU, ensuring a 
+            silky smooth 60fps frame rate even during the complex "wobble" phase.</p>
+    </li>
+</ol>
+
+
+<h2>SVG</h2>
+<pre style="color:#dadada;"><span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">svg</span>&nbsp;<span style="color:#9a97f4;">viewbox</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&nbsp;0&nbsp;400&nbsp;80&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;80&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">defs</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">mask</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;text-mask&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">text</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;#FFF&quot;</span>&nbsp;<span style="color:#9a97f4;">text-anchor</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;middle&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;60&quot;</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;200&quot;</span><span style="color:#f8f8f2;">&gt;</span>LABEL<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">text</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">filter</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;text-filter&quot;</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-20%&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-20%&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;140%&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;140%&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">feGaussianBlur</span>&nbsp;<span style="color:#9a97f4;">in</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;SourceGraphic&quot;</span>&nbsp;<span style="color:#9a97f4;">stdDeviation</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;2&quot;</span>&nbsp;<span style="color:#9a97f4;">result</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;blur&quot;</span><span style="color:#f8f8f2;">&gt;&lt;/</span><span style="color:#ff8fec;">feGaussianBlur</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">feOffset</span>&nbsp;<span style="color:#9a97f4;">in</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;blur&quot;</span>&nbsp;<span style="color:#9a97f4;">dx</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;3&quot;</span>&nbsp;<span style="color:#9a97f4;">dy</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-3&quot;</span><span style="color:#f8f8f2;">&gt;&lt;/</span><span style="color:#ff8fec;">feOffset</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">filter</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">mask</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">mask</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rect-mask&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">rect</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;80&quot;</span>&nbsp;<span style="color:#9a97f4;">rx</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;20&quot;</span>&nbsp;<span style="color:#9a97f4;">ry</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;20&quot;</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgba(255,&nbsp;255,&nbsp;255,&nbsp;1)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">filter</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rect-filter&quot;</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-60%&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-60%&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;220%&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;220%&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">feGaussianBlur</span>&nbsp;<span style="color:#9a97f4;">in</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;SourceGraphic&quot;</span>&nbsp;<span style="color:#9a97f4;">result</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;blur&quot;</span>&nbsp;<span style="color:#9a97f4;">stdDeviation</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;5&quot;</span>&nbsp;<span style="color:#9a97f4;">result</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;blur&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">feOffset</span>&nbsp;<span style="color:#9a97f4;">in</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;blur&quot;</span>&nbsp;<span style="color:#9a97f4;">dx</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;3&quot;</span>&nbsp;<span style="color:#9a97f4;">dy</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;-3&quot;</span><span style="color:#f8f8f2;">&gt;&lt;/</span><span style="color:#ff8fec;">feOffset</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">filter</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">mask</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">lineargradient</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rect-gradient&quot;</span>&nbsp;<span style="color:#9a97f4;">x1</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">x2</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;1&quot;</span>&nbsp;<span style="color:#9a97f4;">y1</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;.1&quot;</span>&nbsp;<span style="color:#9a97f4;">y2</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;.9&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(95,&nbsp;75,&nbsp;139)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;15%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(118,&nbsp;51,&nbsp;116)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;23%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(167,&nbsp;108,&nbsp;151)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;50%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(132,&nbsp;141,&nbsp;197)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;70%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(163,&nbsp;87,&nbsp;l18)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;80%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(240,&nbsp;161,&nbsp;191)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;100%&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(95,&nbsp;75,&nbsp;139)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">lineargradient</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">lineargradient</span>&nbsp;<span style="color:#9a97f4;">id</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;text-gradient&quot;</span>&nbsp;<span style="color:#9a97f4;">x1</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;.25&quot;</span>&nbsp;<span style="color:#9a97f4;">x2</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;1&quot;</span>&nbsp;<span style="color:#9a97f4;">y1</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">y2</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;1&quot;</span>&nbsp;<span style="color:#9a97f4;">class</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;textGrad&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;.0&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(247,&nbsp;196,&nbsp;108)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;.6&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(229,&nbsp;89,&nbsp;130)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">stop</span>&nbsp;<span style="color:#9a97f4;">offset</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;1.0&quot;</span>&nbsp;<span style="color:#9a97f4;">stop-color</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;rgb(234,&nbsp;103,&nbsp;89)&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">lineargradient</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">defs</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">g</span>&nbsp;<span style="color:#9a97f4;">mask</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#rect-mask)&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">rect</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;#000&quot;</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">rect</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#rect-gradient)&quot;</span>&nbsp;<span style="color:#9a97f4;">filter</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#rect-filter)&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;80&quot;</span>&nbsp;<span style="color:#9a97f4;">rx</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;20&quot;</span>&nbsp;<span style="color:#9a97f4;">ry</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;20&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">g</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">g</span>&nbsp;<span style="color:#9a97f4;">mask</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#text-mask)&quot;</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">rect</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;0&quot;</span>&nbsp;<span style="color:#9a97f4;">width</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;400&quot;</span>&nbsp;<span style="color:#9a97f4;">height</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;80&quot;</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;#000&quot;</span>&nbsp;<span style="color:#f8f8f2;">/&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;</span><span style="color:#ff8fec;">text</span>&nbsp;<span style="color:#9a97f4;">text-anchor</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;middle&quot;</span>&nbsp;<span style="color:#9a97f4;">y</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;60&quot;</span>&nbsp;<span style="color:#9a97f4;">x</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;200&quot;</span>&nbsp;<span style="color:#9a97f4;">filter</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#text-filter)&quot;</span>&nbsp;<span style="color:#9a97f4;">fill</span><span style="color:#b4b4b4;">=</span><span style="color:#f6e3cc;">&quot;url(#text-gradient)&quot;</span><span style="color:#f8f8f2;">&gt;</span>LABEL<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">text</span><span style="color:#f8f8f2;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">g</span><span style="color:#f8f8f2;">&gt;</span>
+<span style="color:#f8f8f2;">&lt;/</span><span style="color:#ff8fec;">svg</span><span style="color:#f8f8f2;">&gt;</span>
+</pre>
+
+<h2>CSS</h2>
+<pre style="color:#dadada;"><span style="color:#d55fde;">@keyframes</span>&nbsp;<span style="color:#d55fde;">button-animation</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff8fec;">from</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">transform</span>:&nbsp;<span style="color:#f8f8f2;">matrix3d(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff8fec;">40%</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">transform</span>:&nbsp;<span style="color:#f8f8f2;">matrix3d(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">1.04,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1.04,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1.04,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff8fec;">60%</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">transform</span>:&nbsp;<span style="color:#f8f8f2;">matrix3d(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">1.1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">.953,</span>&nbsp;<span style="color:#f8f8f2;">-.5,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">.5,</span>&nbsp;<span style="color:#f8f8f2;">.953,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff8fec;">80%</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">transform</span>:&nbsp;<span style="color:#f8f8f2;">matrix3d(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">1.1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1.1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1.1,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">0,</span>&nbsp;<span style="color:#f8f8f2;">1)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff8fec;">to</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">transform</span>:&nbsp;<span style="color:#f8f8f2;">scale(1.08)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+<span style="color:#ff8fec;">svg</span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">width</span>:&nbsp;<span style="color:#f8f8f2;">400px</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">height</span>:&nbsp;<span style="color:#f8f8f2;">80px</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">font-family</span>:&nbsp;<span style="color:#f8f8f2;">blanket</span>,&nbsp;<span style="color:#f8f8f2;">sans-serif</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">font-weight</span>:&nbsp;<span style="color:#f8f8f2;">500</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">font-style</span>:&nbsp;<span style="color:#f8f8f2;">normal</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">font-size</span>:&nbsp;<span style="color:#f8f8f2;">60px</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&amp;:hover&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">animation-name</span>:&nbsp;<span style="color:#f8f8f2;">button-animation</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">animation-timing-function</span>:&nbsp;<span style="color:#f8f8f2;">ease-out</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">animation-iteration-count</span>:&nbsp;<span style="color:#f8f8f2;">1</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">animation-duration</span>:&nbsp;<span style="color:#f8f8f2;">.3s</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">animation-fill-mode</span>:&nbsp;<span style="color:#f8f8f2;">forwards</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9a97f4;">cursor</span>:&nbsp;<span style="color:#f8f8f2;">pointer</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</pre>

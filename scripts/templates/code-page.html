@@ -1,0 +1,16 @@
+
+  <header>
+    <div class="category-buttons" >
+      <button data-bind="text: menuItem()[0].text, event : { click : $component.click(menuItem()[0]) }"></button>
+        <button onclick="window.open('/resume.pdf', '_blank')">Resume</button>
+        <button onclick="window.location.assign('https://github.com/mkjanda')">GitHub</button>
+        <button onclick="window.location.assign('https://linkedin.com/in/michael-k-janda')">LinkedIn</button>
+       <div>
+          <button data-bind="text: menuItem()[1].text, event : { click : function() { $component.click(menuItem()[1]) } }"></button>
+          <div class="subcategory-buttons" data-bind="foreach: menuItem()[1].subItems">
+            <button data-bind="text: $data.text, event : { click : function() { $component.click($parent.menuItem()[1], $data)} }"></button>
+          </div>
+          </div>
+      </div>
+  </header>
+  <section data-bind="html: sectionContent(), class : sectionClassName"></section>

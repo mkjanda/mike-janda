@@ -1,0 +1,64 @@
+
+	<svg viewBox="0 0 2816 1536" fill="none" xmlns="http://www.w3.org/2000/svg" style="z-index: 2">
+		<defs>
+			<linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+				<stop offset="0%" style="stop-color: #b88a4d" />
+				<stop offset="25%" style="stop-color: #e5c37e" />
+				<stop offset="50%" style="stop-color: #f9e7a4" />
+				<stop offset="75%" style="stop-color: #e5c37e" />
+				<stop offset="100%" style="stop-color: #b88a4d" />
+			</linearGradient>
+
+			<g id="decoCorner">
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M40 40 L300 300" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M70 40 L300 270" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M100 40 L300 240" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M40 70 L270 300" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M40 100 L240 300" />
+
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M40 150 L150 150 L150 40" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M40 200 L200 200 L200 40" />
+
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M150 150 L180 180" />
+				<path stroke="url(#goldGradient)" stroke-width="4" d="M200 200 L230 230" />
+			</g>
+		</defs>
+
+		<image
+			x="100"
+			y="150"
+			width="2616"
+			height="1236"
+			style="z-index: 1; transform-origin: center center; transform: scaleX(1.111111111)"
+			data-bind="attr : { href : coverImage() }"
+		></image>
+
+		<use href="#decoCorner" x="0" y="0" />
+
+		<use href="#decoCorner" x="0" y="0" transform="translate(2816, 0) scale(-1, 1)" />
+
+		<use href="#decoCorner" x="0" y="0" transform="translate(0, 1536) scale(1, -1)" />
+
+		<use href="#decoCorner" x="0" y="0" transform="translate(2816, 1536) scale(-1, -1)" />
+
+		<path stroke="url(#goldGradient)" stroke-width="4" d="M200 40 L2616 40" />
+		<path stroke="url(#goldGradient)" stroke-width="4" d="M200 70 L2616 70" />
+		<path stroke="url(#goldGradient)" stroke-width="4" d="M200 100 L2616 100" />
+
+		<path stroke="url(#goldGradient)" stroke-width="4" d="M200 1536-40 L2616 1536-40" transform="translate(0, -80)" />
+		<line x1="200" y1="1496" x2="2616" y2="1496" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="200" y1="1466" x2="2616" y2="1466" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="200" y1="1436" x2="2616" y2="1436" stroke="url(#goldGradient)" stroke-width="4" />
+
+		<line x1="40" y1="200" x2="40" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="70" y1="200" x2="70" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="100" y1="200" x2="100" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+
+		<line x1="2776" y1="200" x2="2776" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="2746" y1="200" x2="2746" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+		<line x1="2716" y1="200" x2="2716" y2="1336" stroke="url(#goldGradient)" stroke-width="4" />
+
+		<rect x="150" y="150" width="2516" height="1236" fill="none" stroke="url(#goldGradient)" stroke-width="4" />
+		<rect x="180" y="180" width="2456" height="1176" fill="none" stroke="url(#goldGradient)" stroke-width="4" />
+	</svg>
+	<div style="width: max-content; margin: 0 auto;"><img class="story-title" data-bind="attr : { src : story.titleImage }" /></div>

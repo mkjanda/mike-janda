@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Janda</title> 
+    <link rel="stylesheet" href="https://use.typekit.net/diy7fyp.css">
+    <link rel="stylesheet" href="css/landing.css">
+<script src="scripts/lib/require.js"></script>
+<script>
+  requirejs.config({
+    waitSeconds: 30,
+    baseUrl: "/scripts/lib",
+    paths: {
+        modules: "../modules",
+        templates: "../templates",
+        images : "../../images"
+    }
+  });  
+</script>
+</head>
+<body>
+    <div class="landing">
+    <button onclick="document.location.assign('code.html')">CODE</button>
+    <button onclick="document.location.assign('writing.html')">WRITING</button>
+
+        
+    </div>
+    <div class="viewElsewhere">
+      <img src="/images/phone.svg" />
+    </div>
+
+</body>
+
+</html>

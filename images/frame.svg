@@ -1,0 +1,17 @@
+<svg class="storyHeader" viewBox="0 0 200 600" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: #fee6a8; stop-opacity: 1" />
+            <stop offset="50%" style="stop-color: #d4af37; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: #8a6d3b; stop-opacity: 1" />
+        </linearGradient>
+<pattern  id="image" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+<feImage href="/writing/images/forever-is-a-word-for-children.jpg" width="1" height="1" preserveAspectRatio="xMidYMid slice" />
+            
+</pattern>
+
+    </defs>
+    <path d="M0 15 C 5 15 15 5 15 0 L 185 0 C 185 5 195 15 200 15 L 200 585 C 195 585 185 595 185 600 L 15 600 C 15 595 5 585 0 585 Z" stroke="#C5A45E" stroke-width="4" />
+    <path d="M5 20 C 10 20 20 10 20 5 L 180 5 C 180 10 190 20 195 20 L 195 580 C 190 580 180 590 180 595 L 20 595 C 20 590 10 580 5 580 Z" stroke="#C5A45E" stroke-width="3" fill="url(#image)" />
+</svg>

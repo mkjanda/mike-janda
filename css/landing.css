@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    @media screen and (pointer: fine) {
+    background-image: url(../images/landing-page.jpeg);
+    background-size: cover;
+    }
+    @media screen and (pointer : coarse) {
+        background-color: rgb(192, 21, 83, .2);
+     }
+
+    & div.landing {
+        @media (pointer: coarse) {
+            visibility: collapse;
+        }
+
+        margin: auto 25%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        position: fixed;
+        top: 55%;
+        min-width: 50%;
+        line-height: 5%;
+
+        button {
+
+            background-color: transparent;
+            padding: 2%;
+            font-size: 3rem;
+
+            &:last-of-type {
+                color: black;
+                border: 5px solid black;
+
+                &:hover {
+                    mix-blend-mode: color-burn;
+                    background-color: rgb(192, 21, 83, .2);
+
+                }
+            }
+
+            &:first-of-type {
+                border: 5px solid white;
+                color: white;
+
+                &:hover {
+                    mix-blend-mode: lighten;
+                    background-color: rgb(95, 75, 139, .2);
+                }
+            }
+        }
+    }
+
+
+    div.viewElsewhere {
+        @media screen and (pointer: fine) {
+            visibility: collapse;
+        }
+
+        display: flex;
+        flex-flow: column;
+        align-items: left;
+
+        & img {
+            margin: 10vh 10vw;
+            @media screen and (max-aspect-ratio: 1 / 1) {
+                width: 50vw;
+           }
+           @media screen and (min-aspect-ratio: 1 / 1) {
+                
+                height: 40vh;
+            }
+
+        }
+    }
+
+
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    section {
+        margin: 20px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+}

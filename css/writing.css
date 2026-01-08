@@ -1,0 +1,231 @@
+body {
+    div.writing-page {
+        padding: 0;
+        margin: 0;
+        height: calc(100% - 32vh);
+        background-color: #212121;
+
+        & svg text {
+            text-anchor: middle;
+            font-family: co-text;
+
+            &:hover{
+                cursor: pointer;                
+            }
+        }
+
+        & .container {
+            display: grid;
+            grid-template-columns: 1fr 9fr;
+
+            & svg.sidebar {
+                position: fixed;
+                min-height: 100vh;
+                width: 10vw;
+                margin: 0;
+                padding: 0;
+                z-index: 5;
+                top: 0;
+                left: 0;
+
+                & text {
+                    text-anchor: middle;
+                    font-family: co-headline;
+                    font-size: 18px;
+                }
+
+            }
+
+
+            & header {
+                position: relative;
+                z-index: 2;
+                background-image: url('/images/writing-header-background.jpg');
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 8vh;
+
+                & img {
+                    height: 12vh;
+
+                }
+
+            }
+
+            & content.writing {
+                position: relative;
+                top: -5px;
+
+                & img#writing-header {
+                    position: absolute;
+                    top: 5wh;
+                    width: 90vw;
+                    left: 5vw;
+                }
+
+                & img.section-header {
+                    height: 7vh;
+                }
+
+                & section {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    margin: 0;
+
+                    &:nth-of-type(n+2) {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &.technical {
+                        background-color: #1A1F2B;
+                        top: -31.5vh;
+                            
+                        & div.human-condition-table {
+                            display: grid;
+                            grid-template-columns: 2fr 3fr 5fr;
+                        }
+
+                        & .white-paper {
+                            position: relative;
+                            top: 2vh;
+                            left: -7vw;
+                            padding: 12.5%;
+                            background-color: #fff;
+                            width: 40vw;
+                            ol > li {
+                                font-family: legitima;
+                                font-size: 1.4rem;
+                                color: #000;    
+                            }
+                            h2, h3 {
+                                font-family: myriad-pro, sans-serif;
+                                font-weight: 700;
+                                color: #000;
+                            }
+
+                            h2 { font-size: 2.5rem; }
+
+                            h3 { 
+                                font-size: 1.4rem; 
+                                margin-bottom: 0px;
+                            }
+
+                            p, li {
+                                margin: 0;
+                                font-family: legitima, serif;
+                                font-weight: 500;
+                                font-style: normal;                                
+                                color: #000;
+                                font-size: 1.2rem;
+                            }
+                            strong {
+                                font-family: co-text;
+                                font-weight: 700;
+
+                                &.double {
+                                    font-style: co-headline;
+                                    font-weight: 700;
+                                }
+                            }
+                            blockquote {
+                                font-family: legitima, serif;
+                                font-weight: 500;
+                                font-style: italic;                                
+                                color: #000;
+                                font-size: 1.2rem;  
+                                margin-right: 12.5%;
+                            }
+                        }
+                    }
+                }
+
+                & img.sunburst {
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    z-index: 2;
+
+                    &:nth-of-type(1) {
+                        top: -30vh;
+                    }
+
+                    &:nth-of-type(2) {
+                        top: -33.5Vh;
+                    }
+
+                }
+
+                & section.poem {
+                    & img {
+                        z-index: 1;
+                    }
+                }
+
+
+                & section.stories {
+                    position: relative;
+                    top: -32vh;
+                    width: 100%;
+                    padding-left: 0vw;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    background-color: #212121;
+
+                    & .story-header {
+                        width: 80%;
+                        margin-bottom: 3vh;
+                    }
+
+
+                    & .tablets {
+
+                        margin: 0;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+
+                        & .tablet {
+                            border-radius: 15px;
+                            padding: 0;
+                            overflow: hidden;
+                            width: 40vw;
+                            height: 43vh;
+                            font-family: "dream-big-wide", sans-serif;
+                            font-size: 3rem;
+                            font-weight: 700;
+                            font-style: normal;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            align-items: center;
+                            z-index: 2;
+                            transform-origin: center center;
+                            transform: scalex(.9);
+
+                            & img.story-title {
+                                height: 2.5rem;
+                                position: relative;
+                                top: -4rem;
+                            }
+
+
+                            & svg {
+
+                                height: 40vh;
+                            }
+                        }
+
+                            & div.poemBox {
+                                overflow-y: auto;
+                                border: none;
+                                min-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }

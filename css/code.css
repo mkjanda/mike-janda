@@ -1,0 +1,343 @@
+@keyframes expand {
+    from {
+        height: 5vh;
+    }
+
+    to {
+        height: 8vh;
+    }
+}
+
+@keyframes button-animation {
+    from {
+        transform: matrix3d(1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1)
+    }
+
+    40% {
+        transform: matrix3d(1.04, 0, 0, 0,
+                0, 1.04, 0, 0,
+                0, 0, 1.04, 0,
+                0, 0, 0, 1)
+    }
+
+    60% {
+        transform: matrix3d(1.1, 0, 0, 0,
+                0, .953, -.5, 0,
+                0, .5, .953, 0,
+                0, 0, 0, 1)
+    }
+
+    80% {
+        transform: matrix3d(1.1, 0, 0, 0,
+                0, 1.1, 0, 0,
+                0, 0, 1.1, 0,
+                0, 0, 0, 1)
+    }
+
+    to {
+        transform: scale(1.08)
+    }
+}
+
+
+
+body {
+    background-image: url('../images/code.jpeg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    & header {
+
+        height: 5vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            animation: expand 0.5s ease-in-out forwards;
+            height: 10vh;
+        }
+
+        div.category-buttons {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: start;
+            height: 100%;
+            margin: 0px auto;
+            overflow: hidden;
+
+            & button {
+                font-family: myriad-pro, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 3.5vh;
+                background-color: transparent;
+                border: none;
+                margin: 0px 20px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #555;
+                }
+            }
+
+            div.subcategory-buttons {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: start;
+                height: 100%;
+                margin: 0px auto;
+                overflow: hidden;
+                max-width: 100%;
+
+                & button {
+                    font-family: myriad-pro, sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 2.75vh;
+                    background-color: transparent;
+                    border: none;
+                    margin: 0px 10px;
+                    cursor: pointer;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #555;
+                    }
+                }
+            }
+        }
+    }
+
+    & section {
+        position: fixed;
+        left: 10%;
+        top: 10vh;
+        padding: 2%;
+        height: 70vh;
+        min-height: 75vh;
+        width: 78%;
+
+        div.importantLinks {
+            margin: 0px auto;
+            width: max-content;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            font-family: co-text, sans-serif;
+            font-weight: 400;
+            font-size: min(min(2rem, 4vh), 2.5vw);
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+            & a {
+                color: rgb(97, 206, 201);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+
+        & div.bio {
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: start;
+            font-family: co-text, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+            & div.bio-text {
+                margin: 0px 2.5%;
+                font-family: co-text, sans-serif;
+                overflow-y: auto;
+                max-height: 75vh;
+
+                & h2 {
+                    font-weight: 700;
+                    margin: 0;
+                    font-size: min(min(3rem, 4vh), 3.75vw);
+                    line-height: min(min(3.3rem, 4.4vh), 4vw);
+                }
+
+                & p, li {
+                    font-size: min(min(2rem, 4vh), 2.5vw);
+
+                }
+
+                & strong {
+                    font-weight: 700;
+                }
+            }
+
+            & img {
+                height: auto;
+                width: 30vw;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                margin-right: 20px;
+            }
+
+
+
+        }
+
+        &.code {
+            background-image: url('../images/code-background.jpg');
+            background-size: cover;
+            border-radius: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 1;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.25rem;
+
+            & .technicalTable {
+                display: grid; 
+                grid-template-columns: auto 1fr;
+                grid-gap: 10px;
+                margin-bottom: 20px;
+                & p {
+                    margin: 0;
+                    font-size: 1rem;
+                    width: 100%;
+                }
+                & p.table-header {
+                    font-family: co-text;
+                    font-size: .9rem;
+                    font-weight: 700;
+                }
+
+                & p:nth-of-type(2n + 3) {
+                    font-family: co-headline;
+                    font-weight: 700;
+                }
+
+                & p:nth-of-type(2n + 4) {
+                    font-family: co-text;
+                    font-weight: 400;
+                }
+            }
+
+            &>p {
+                margin-top: 0px;
+            }
+
+            & .snippet p {
+                font-size: .9rem;
+                font-family: "coordinates", monospace;
+                font-weight: 400;
+                font-style: normal;
+                margin: 0;
+            }
+
+            & pre {
+                font-size: .9rem;
+                font-family: "coordinates", monospace;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            & span.dbl-bold {
+                font-family: "co-headline", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+            }
+
+            & p,
+            li {
+                font-size: 1.2rem;
+                font-weight: 400;
+
+            }
+
+            & li p {
+                margin: 0;
+            }
+
+
+            & h3 {
+                font-family: "co-headline", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin: .25rem 0;
+            }
+
+            & h2 {
+                font-family: "co-headline", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+
+
+            & p,
+            li,
+            h2,
+            h3,
+            h4 {
+                width: 80%;
+                font-family: "co-text", sans-serif;
+                font-style: normal;
+                color: rgb(206, 145, 120);
+                line-height: 1.25;
+
+                &.strong {
+                    font-family: co-headline, sans-serif;
+                    font-weight: 700;
+                }
+
+                & span.name {
+                    font-family: coordinates, monospace;
+                    font-weight: 400;
+                    font-style: normal;
+                    background: rgba(150, 150, 150, 0.3);
+                    color: rgb(97, 206, 201);
+                }
+            }
+
+
+
+            svg {
+                width: 400px;
+                height: 80px;
+                font-family: blanket, sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 60px;
+
+                &:hover {
+                    animation-name: button-animation;
+                    animation-timing-function: ease-out;
+                    animation-iteration-count: 1;
+                    animation-duration: .3s;
+                    animation-fill-mode: forwards;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

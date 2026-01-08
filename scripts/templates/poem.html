@@ -1,0 +1,21 @@
+<div class="tablet" data-bind="event : { click : function() { onClick(id) } }, attr : { id : id }">
+ <!-- ko if: expanded() -->   
+  <p data-bind="event : { click : close }" class="close" style="position: absolute; top: 0px;">X</p>
+  <!-- /ko -->
+    <img data-bind='attr : { src : "/writing/images/" + poem.titleImage }' />
+    <div class="poemBox">
+    <svg data-bind="attr : { viewBox : svgViewBox }" width="100%">
+        <style>
+            text {
+            fill: rgb(192, 21, 83);
+            stroke: rgb(192, 21, 83);
+                font-size: 3rem;
+            }
+        </style> 
+        <!-- ko foreach: poem.lines -->
+            <text data-bind="attr : { y : 55 * ($index() + 1), x : $data.x.toString() }, text: $data.line"></text>
+        <!-- /ko -->   
+    </svg>      
+    </div>
+</div>
+

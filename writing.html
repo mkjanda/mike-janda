@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Janda - Code</title> 
+    <link rel="stylesheet" href="https://use.typekit.net/diy7fyp.css">
+    <link rel="stylesheet" href="css/writing.css">
+    <link rel="stylesheet" href="css/story.css">
+    <script src="scripts/lib/require.js"></script>
+<script>
+  requirejs.config({
+    waitSeconds: 30,
+    baseUrl: "/scripts/lib",
+    paths: {
+        modules: "../modules",
+        templates: "../templates",
+        writing : "../../writing"
+    }
+  });
+</script>
+<script src="scripts/writing.js"></script>
+</head>
+<body>
+
+  <writing-page></writing-page>
+</body>
+</html>
