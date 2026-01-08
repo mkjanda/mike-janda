@@ -1,3 +1,8 @@
+:root {
+    --nav-width-small: 200px;
+    --nav-width-medium: 300px;
+    --nav-width-large: 450px;
+}
 body {
     background-color: #1A1F2B;
     padding: 0;
@@ -10,24 +15,30 @@ body {
         min-height: 100vh;
         display: flex;
         flex-flow: row nowrap;
+        overflow-x: hidden;
 
 
-        header {
-            & svg:nth-of-type(1) {
+
+            & svg {
+                width: var(--nav-width-small);
+            }
+
+            & svg:nth-of-type(1) { 
                 position: fixed;
-                left: 1vw;
-                top: 50px;
-                width: 200px;
                 z-index: 2;
+                transform-origin: left top;
+                transform: scaleY(1.33333);
+                top: 20px;
+                left: 20px;
             }
 
             & svg:nth-of-type(2) {
                 position: fixed;
-                top: 50px;
-                left: 1vw;
-                width: 200px;
+                top: 40px;
+                left: 25px;
                 z-index: 3;
-
+                transform-origin: top center;
+                transform: scale(1);
                 & text {
                     cursor: pointer;
                     font-family: co-headline, sans-serif;
@@ -36,55 +47,56 @@ body {
                 }
 
             }
-        }
 
         section {
-            &>div {
+            & > div {
+                position: absolute;
+                left: 250px;
                 display: flex;
                 flex-flow: column nowrap;
                 justify-items: start;
                 align-items: start;
 
                 & img.writing-header {
-                    height: max(5vh, 50px);
-                    margin-left: 10%;
+                    top: 5vh;
+                    height: max(5vh, 60px);
                 }
 
                 & svg:nth-of-type(1) {
+                    z-index: 1;
+                    transform: scaleX(4) transformX(-6.5px);
+                    position: relative;
                     height: 10px;
                     z-index: 1;
                     transform-origin: left center;
-                    transform: scaleX(2.4);
                 }
 
                 & div.content {
                     display: flex;
                     flex-flow: column nowrap;
-                    align-items: center;
+                    align-items: start;
                     justify-content: flex-start;
 
                     & img.frame {
-                        transform-origin: center;
-                        transform: scale(.75);
+                        width: 50%;
+                        margin: 20px;
                     }
 
                     & img.title {
                         width: 50%;
-                        position: relative;
-                        top: -5rem;
+                        margin-left: 10%;
                     }
 
                     & div.story-text {
-                        top: -5vh;
+                        margin: 2vh;
                         display: flex;
                         flex-flow: column nowrap;
                         align-items: flex-start;
-                        margin-left: 250px;
-
+ 
                         & img {
                             width: 50%;
-                            margin: 2vh 200px;
-
+                            margin: 2vh 10%;
+                            align-self: center;
                         }
 
                         & p {
@@ -119,27 +131,17 @@ body {
                             columns: 2;
                             @media (max-width: 1400px) {
                                 column-gap: 20px;
-                                width: 1000px;
+                                width: 900px;
                             }
-                            @media (min-width: 1400px) and (max-width: 1800px) {
+                            @media (min-width: 1400px) and (max-width: 2000px) {
                                 column-gap: 30px;
-                                width: 1250px;
+                                width: 1100px;
                             }
-                            @media (min-width: 1800px) {
+                            @media (min-width: 2000px) {
                                 column-gap: 40px;
                                 width: 1500px;
                             }    
                             height: 80vh;
-                            & div.soji p {
-                                &:nth-of-type(1) {
-                                }
-
-                                &:nth-of-type(2) {
-                                }
-
-                                &:nth-of-type(3) {
-                                }
-                            }
                         }
                     }
                 }

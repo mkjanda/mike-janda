@@ -1,3 +1,10 @@
+:root {
+    --deco-gold: #D4AF37;
+    --deco-cream: #F5F5DC;
+    --deco-black: #1A1A1A;
+    --deco-accent: #C0C0C0;
+}
+
 body {
     div.writing-page {
         padding: 0;
@@ -9,8 +16,8 @@ body {
             text-anchor: middle;
             font-family: co-text;
 
-            &:hover{
-                cursor: pointer;                
+            &:hover {
+                cursor: pointer;
             }
         }
 
@@ -54,13 +61,89 @@ body {
 
             }
 
+            & .about-writing-container {
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 40px;
+                background-color: var(--deco-black);
+                color: var(--deco-cream);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border: 1px solid var(--deco-gold);
+                position: relative;
+                box-shadow: 10px 10px 0px var(--deco-gold);
+            }
+
+            & .about-header h1 {
+                text-transform: uppercase;
+                letter-spacing: 6px;
+                text-align: center;
+                color: var(--deco-gold);
+                margin-bottom: 5px;
+                font-weight: 300;
+            }
+
+            & .subtitle {
+                text-align: center;
+                font-style: italic;
+                letter-spacing: 2px;
+                color: var(--deco-accent);
+                margin-bottom: 30px;
+                border-bottom: 1px double var(--deco-gold);
+                display: inline-block;
+                width: 100%;
+                padding-bottom: 10px;
+            }
+
+            & .about-content p {
+                line-height: 1.8;
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+            }
+
+            & .project-highlight {
+                border-left: 3px solid var(--deco-gold);
+                padding-left: 20px;
+                margin: 30px 0;
+                background: rgba(212, 175, 55, 0.05);
+            }
+
+            & .project-highlight h3 {
+                text-transform: uppercase;
+                color: var(--deco-gold);
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            & .inline-link {
+                color: var(--deco-gold);
+                text-decoration: none;
+                border-bottom: 1px solid transparent;
+                transition: 0.3s;
+            }
+
+            & .inline-link:hover {
+                border-bottom: 1px solid var(--deco-gold);
+            }
+
+            /* Post-Modern Geometric Accents */
+            & .deco-border-top,
+            .deco-border-bottom {
+                height: 10px;
+                width: 100%;
+                background: repeating-linear-gradient(45deg,
+                        var(--deco-gold),
+                        var(--deco-gold) 10px,
+                        transparent 10px,
+                        transparent 20px);
+                opacity: 0.3;
+            }
+
             & content.writing {
                 position: relative;
                 top: -5px;
 
                 & img#writing-header {
                     position: absolute;
-                    top: 5wh;
                     width: 90vw;
                     left: 5vw;
                 }
@@ -78,12 +161,13 @@ body {
                     &:nth-of-type(n+2) {
                         position: relative;
                         z-index: 2;
+                        top: -32vh;
                     }
 
                     &.technical {
                         background-color: #1A1F2B;
                         top: -31.5vh;
-                            
+
                         & div.human-condition-table {
                             display: grid;
                             grid-template-columns: 2fr 3fr 5fr;
@@ -95,33 +179,51 @@ body {
                             left: -7vw;
                             padding: 12.5%;
                             background-color: #fff;
-                            width: 40vw;
-                            ol > li {
+
+                            @media (max-width: 800px) {
+                                width: 55vw;
+                            }
+
+                            @media (min-width: 800px) and (max-width: 2000px) {
+                                width: 50vw;
+                            }
+
+                            @media (min-width: 2000px) {
+                                width: 45vw;
+                            }
+
+                            ol>li {
                                 font-family: legitima;
                                 font-size: 1.4rem;
-                                color: #000;    
+                                color: #000;
                             }
-                            h2, h3 {
+
+                            h2,
+                            h3 {
                                 font-family: myriad-pro, sans-serif;
                                 font-weight: 700;
                                 color: #000;
                             }
 
-                            h2 { font-size: 2.5rem; }
+                            h2 {
+                                font-size: 2.5rem;
+                            }
 
-                            h3 { 
-                                font-size: 1.4rem; 
+                            h3 {
+                                font-size: 1.4rem;
                                 margin-bottom: 0px;
                             }
 
-                            p, li {
+                            p,
+                            li {
                                 margin: 0;
                                 font-family: legitima, serif;
                                 font-weight: 500;
-                                font-style: normal;                                
+                                font-style: normal;
                                 color: #000;
                                 font-size: 1.2rem;
                             }
+
                             strong {
                                 font-family: co-text;
                                 font-weight: 700;
@@ -131,12 +233,13 @@ body {
                                     font-weight: 700;
                                 }
                             }
+
                             blockquote {
                                 font-family: legitima, serif;
                                 font-weight: 500;
-                                font-style: italic;                                
+                                font-style: italic;
                                 color: #000;
-                                font-size: 1.2rem;  
+                                font-size: 1.2rem;
                                 margin-right: 12.5%;
                             }
                         }
@@ -189,8 +292,6 @@ body {
                         grid-template-columns: 1fr 1fr;
 
                         & .tablet {
-                            border-radius: 15px;
-                            padding: 0;
                             overflow: hidden;
                             width: 40vw;
                             height: 43vh;
@@ -204,6 +305,7 @@ body {
                             z-index: 2;
                             transform-origin: center center;
                             transform: scalex(.9);
+                            cursor: pointer;
 
                             & img.story-title {
                                 height: 2.5rem;
@@ -218,14 +320,14 @@ body {
                             }
                         }
 
-                            & div.poemBox {
-                                overflow-y: auto;
-                                border: none;
-                                min-width: 100%;
-                            }
+                        & div.poemBox {
+                            overflow-y: auto;
+                            border: none;
+                            min-width: 100%;
                         }
                     }
                 }
             }
         }
     }
+}

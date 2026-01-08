@@ -36,11 +36,11 @@
 			<text fill="url(#goldGradient)" x="100" y="450" onclick="window.location.assign('/');">Master's</text>
 			<text fill="url(#goldGradient)" x="100" y="475"	onclick="window.location.assign('/');">Navigation</text>
 			<line x1="50" y1="485" x2="150" y2="486" stroke="url(#goldGradient)" stroke-width="2" />
-			<text fill="url(#goldGradient)" x="100" y="510" data-bind="click : function() { displayedSection('Writing'); }">Technical</text>
+			<text fill="url(#goldGradient)" x="100" y="510" data-bind="click : function() { displayedSection('Writing'); window.location.assign('/writing.html#technical-section'); }">Technical</text>
 			<line stroke="url(#goldGradient)" x1="50" y1="519" x2="150" y2="520" stroke-width="2" />
-			<text x="100" y="540" fill="url(#goldGradient)" data-bind="click : function() { displayedSection('Writing'); }">Creative</text>
+			<text x="100" y="540" fill="url(#goldGradient)" data-bind="click : function() { displayedSection('Writing'); window.location.assign('/writing.html#creative-section'); }">Creative</text>
 			<line stroke="url(#goldGradient)" x1="50" y1="549" x2="150" y2="550" stroke-width="2" />
-			<text x="100" y="570" fill="url(#goldGradient)" data-bind="click : function() { displayedSection('Writing'); }">About</text>
+			<text x="100" y="570" fill="url(#goldGradient)" data-bind="click : function() { displayedSection('Writing'); window.location.assign('/writing.html#about-section'); }">About</text>
 			<line x1="92" y1="590" x2="93" y2="1010" stroke="url(#goldGradient)" stroke-width="2" />
 			<line x1="100" y1="590" x2="101" y2="1010" stroke="url(#goldGradient)" stroke-width="2" />
 			<line x1="108" y1="590" x2="109" y2="1010" stroke="url(#goldGradient)" stroke-width="2" />
@@ -55,7 +55,7 @@
 				<img src="/images/poem.jpg" width="100%" class="poem-backdrop" />
 			</section>
 			<img src="/images/sunburst1.svg" class="sunburst" width="100%" />
-			<section class="technical">
+			<section class="technical" id="technical-section">
 				<div class="samples">
 					<img class="section-header" src="/images/technical-header.svg" />
 <div class="white-paper">
@@ -118,7 +118,7 @@
 	</div>
 			</section>
 			<img src="/images/sunburst2.svg" class="sunburst" width="100%" />
-			<section class="stories">
+			<section class="stories" id="creative-section">
 				<img class="section-header" src="/images/story-header.svg" />
 				<div class="tablets">
 					<!-- ko foreach: writing.stories -->
@@ -128,6 +128,48 @@
 					<!-- /ko -->
 				</div>
 			</section>
+			<section class="about">
+<section class="about-writing-container" id="about-section">
+    <div class="deco-border-top"></div>
+    
+    <header class="about-header">
+        <h1>About the Writing</h1>
+        <p class="subtitle">Logic. Narrative. Possession.</p>
+    </header>
+
+    <article class="about-content">
+        <p>
+            I build with logic, but I communicate through narrative. If you’ve seen the 
+            <a href="code.html" class="inline-link">code side</a> of my work, you know I value precision. 
+            Here, I value transparency.
+        </p>
+
+        <p>
+            I am informal by nature—a talkative person who often shares personal details 
+            others might keep hidden. My work is shaped by deep, persistent obsessions: 
+            a twenty-year love for Lea, a fascination with post-modern aesthetics, and my 
+            perspective as April.
+        </p>
+
+        <div class="project-highlight">
+            <h3>The IAT Manual Project</h3>
+            <p>
+                The document currently on this page is a placeholder. I am reimagining the 
+                <strong>IAT Software manual</strong> by merging the tactile with the digital. 
+                Using professionally bound copies and two-up photostats, I am building a 
+                3D-interactive experience that captures the weight of the physical object.
+            </p>
+        </div>
+
+        <p class="closing-statement">
+            Whether I'm documenting complex systems or exploring the personas of my 
+            creative work, I am looking for the point where technical mastery meets 
+            raw human emotion.
+        </p>
+    </article>
+
+    <div class="deco-border-bottom"></div>
+</section>
 		</content>
 	</div>
 </div>
@@ -138,7 +180,4 @@
 <!-- /ko -->
  <!-- ko if: displayedSection() === 'Creative' -->
   <story-page params="displayedSection : displayedSection, story : story"></story-page>
-  <!-- /ko -->
- <!-- ko if: displayedSection() === 'About' -->
-  <about parans="displayedSection : displayedSection"></about>
   <!-- /ko -->
