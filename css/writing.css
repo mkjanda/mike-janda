@@ -243,6 +243,31 @@ body {
                                 margin-right: 12.5%;
                             }
                         }
+
+                        & .samples {
+                            display: flex;
+                            flex-flow: column nowrap;
+                            align-items: center;
+                            max-width: 80vw;
+                            overflow-x: hidden;
+
+                            & img.iat-manual {
+                                width: 100%;
+                            }
+                            
+
+                            & .arrows {
+                                display: flex;
+                                flex-flow: row nowrap;
+                                justify-content: space-around;
+                                min-width: max-content;
+                                min-height: max-content;
+                                align-items: center;
+                                height: 100px;
+                                width: 100%;
+                            }
+
+                        }
                     }
                 }
 
