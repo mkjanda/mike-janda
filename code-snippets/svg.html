@@ -52,15 +52,15 @@
             <span class="name">rgb(240, 161, 191)</span>. This provides a "Synthwave" night-sky backdrop.</li>
             <li><span class="name">text-gradient</span>: A "sunset" gradient (gold to red) applied to the text.</li>
     </ul>
-    <p>The Sophistication (Masking): Rather than simply layering text on top of a box, you are using SVG Masks 
+    <p>The Sophistication (Masking): Rather than simply layering text on top of a box, SVG Masks are used
         <span class="name">&lt;mask id="text-mask"&gt;</span>. This technique allows the background logic to "cut out" the text or apply inner 
             shadows/glows using the feGaussianBlur and feOffset filters. This adds a level of polish and depth 
             that standard CSS text-shadows rarely achieve.</p>
     </li>
     <li><h3>Tactile 3D Physics (The CSS)</h3>
-    <p>The animation is the star of the show here. Instead of a standard 2D "scale" zoom, you are utilizing matrix3d.</p>
+    <p>The animation is the star of the show here. Instead of a standard 2D "scale" zoom, matrix3d is utilized.</p>
     <ul>
-        <li><strong>The "Jelly" Wobble:</strong> By manipulating the matrix values in the 60% keyframe (0, .953, -.5, 0), you introduce a skew or rotation on the X/Z axis.</li>
+        <li><strong>The "Jelly" Wobble:</strong> By manipulating the matrix values in the 60% keyframe (0, .953, -.5, 0), a skew or rotation is introduced on the X/Z axis.</li>
         <li><strong>The Result: </strong>When the user hovers, the button doesn't just get bigger; it physically "wobbles" or tilts toward the user before settling. 
             This gives the button a tactile, gelatinous weight, making the interface feel alive and responsive.</li>
     </ul>

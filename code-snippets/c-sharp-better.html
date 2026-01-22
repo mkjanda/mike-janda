@@ -1,0 +1,170 @@
+<div style="
+    width: 100%; 
+    max-width: 2000px; 
+    height: 800px; 
+    overflow-y: scroll; 
+    background: #ffffff; 
+    font-family: co-text, sans-serif; 
+    color: #333; 
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+">
+
+    <div style="
+        position: sticky; 
+        top: 0; 
+        background: rgba(255, 255, 255, 0.95); 
+        backdrop-filter: blur(5px); 
+        border-bottom: 2px solid #eaeaea; 
+        padding: 2rem 3rem; 
+        z-index: 100;
+    ">
+        <h2 style="margin: 0; color: #2d3748; font-size: 1.8rem; letter-spacing: -0.025em;">
+            Evolutionary Architecture: Managing Data Mortality
+        </h2>
+        <p style="margin: 0.5rem 0 0; color: #718096; font-size: 1rem; max-width: 800px; line-height: 1.5;">
+            <strong>The Challenge:</strong> Preserving the integrity of the <em>Greenwald et al.</em> IAT scoring algorithm across 5 years of changing data schemas (V1–V4).
+            <br>
+            <strong>The Solution:</strong> A robust inheritance model where modern namespaces (V3) extend legacy logic (V1) to handle new security requirements without breaking historical scoring.
+        </p>
+    </div>
+
+    <div style="padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+
+        <div>
+            <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="background: #e2e8f0; color: #4a5568; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase;">Legacy Base</span>
+                <h3 style="margin: 0; font-size: 1.1rem; color: #2d3748;">Namespace V1: The Core Logic</h3>
+            </div>
+            
+            <div class="code-card" style="background: #f8fafc; border: 1px solid #cbd5e0; border-radius: 8px; padding: 1.5rem; position: relative;">
+                <p style="font-size: 0.85rem; color: #718096; margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">
+                    <em>File: IATResultSetNamespaceV1.cs</em>
+                </p>
+                <pre style="margin: 0; font-size: 0.9rem; line-height: 1.6; overflow-x: auto; color: #2d3748;"><code>public class IATResultSet : INamedXmlSerializable
+{
+    // The core D-Score algorithm is defined here once.
+    // It remains the "Source of Truth" for all versions.
+    protected double _IATScore;
+    
+    <span class="hover-trigger" style="background: #ebf8ff; border-bottom: 2px solid #4299e1; cursor: help; padding: 0 2px;">public void Score()</span>
+    {
+        long LatencySum = 0;
+        // ... latency penalties (< 300ms)
+        
+        // Calculate Inclusive Standard Deviation
+        double sd3_6 = Math.Sqrt(...);
+        
+        // Final D-Score Calculation
+        _IATScore = (((mean6 - mean3) / sd3_6) + 
+                     ((mean7 - mean4) / sd4_7)) / 2;
+    }
+}</code></pre>
+
+                <div class="tooltip-content">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: #63b3ed;">Algorithmic Integrity:</strong>
+                    The mathematical model for the IAT is complex. By encapsulating it in the V1 base class, I ensure that data from 2020 is scored exactly the same way as data from 2025, regardless of the container format.
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; color: #718096; margin-top: 1rem; line-height: 1.5;">
+                This class established the baseline. However, as the software matured, requirements for encryption and authentication (Tokens) were added, requiring a schema update.
+            </p>
+        </div>
+
+
+        <div>
+            <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="background: #c6f6d5; color: #276749; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase;">Modern Era</span>
+                <h3 style="margin: 0; font-size: 1.1rem; color: #2d3748;">Namespace V3: The Secure Adapter</h3>
+            </div>
+
+            <div class="code-card" style="background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; padding: 1.5rem; position: relative;">
+                <p style="font-size: 0.85rem; color: #718096; margin-top: 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">
+                    <em>File: IATResultSetNamespaceV3.cs</em>
+                </p>
+                <pre style="margin: 0; font-size: 0.9rem; line-height: 1.6; overflow-x: auto; color: #2d3748;"><code>// V3 Inherits from V1 to gain Scoring capabilities
+<span class="hover-trigger" style="background: #c6f6d5; border-bottom: 2px solid #48bb78; cursor: help; padding: 0 2px;">public class IATResultSet : NamespaceV1.IATResultSet</span>, IResultSet
+{
+    // New Requirement: Security Tokens
+    public String _Token = String.Empty;
+
+    public IATResultSet(ResultSetDescriptor rsd, String token) 
+        <span class="hover-trigger" style="background: #c6f6d5; border-bottom: 2px solid #48bb78; cursor: help; padding: 0 2px;">: base(rsd)</span>
+    {
+        // Hydrate the new V3 specific data
+        _Token = token;
+    }
+    
+    // The Score() method is NOT re-implemented.
+    // We implicitly trust the Base (V1) logic.
+}</code></pre>
+
+                <div class="tooltip-content" style="top: 80%;">
+                    <strong style="display: block; margin-bottom: 0.5rem; color: #48bb78;">Evolution via Inheritance:</strong>
+                    Instead of rewriting the parser, V3 strictly adds what is new (The Auth Token) and delegates all mathematical heavy lifting to the battle-tested V1 parent class. This minimizes regression bugs.
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; color: #718096; margin-top: 1rem; line-height: 1.5;">
+                The V3 implementation is lightweight. It acts as a wrapper that satisfies modern interface contracts (`IResultSet`) while preserving the historical scoring logic.
+            </p>
+        </div>
+
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <style>
+        .code-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .code-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tooltip Logic */
+        .tooltip-content {
+            display: none;
+            position: absolute;
+            top: 20%; 
+            left: 5%; 
+            right: 5%; 
+            background: #2d3748; 
+            color: #fff; 
+            padding: 1.5rem; 
+            border-radius: 6px; 
+            z-index: 50; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            animation: fadeIn 0.2s ease-in-out;
+            pointer-events: none; /* Let clicks pass through if needed */
+        }
+        
+        .code-card:hover .tooltip-content,
+        .hover-trigger:hover + .tooltip-content {
+            display: block !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Scrollbar Styling for Webkit */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e0; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0; 
+        }
+    </style>
+</div>

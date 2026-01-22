@@ -1,4 +1,4 @@
-define(['knockout', 'text!templates/code-page.html', 'text!snippets/bio.html', 'text!snippets/c-sharp.html',
+define(['knockout', 'text!templates/code-page.html', 'text!snippets/bio.html', 'text!snippets/c-sharp-better.html',
      'text!snippets/css.html', 'text!snippets/java.html', 'text!snippets/javascript.html',
      'text!snippets/svg.html', 'text!snippets/xslt.html'], function (ko, htmlString, bio, cSharp, css, java, javascript, svg, xslt) {
     class CodePage {
